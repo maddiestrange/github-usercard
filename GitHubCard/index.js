@@ -89,7 +89,7 @@ function createCards(data){
   const username = document.createElement('p')
   const location = document.createElement('p')
   const profile = document.createElement('p')
-  const address = document.createElement('a')
+ // const address = document.createElement('a')
   const followers = document.createElement('p')
   const following = document.createElement('p')
   const bio = document.createElement('p')
@@ -100,7 +100,7 @@ function createCards(data){
   cardInfo.appendChild(username)
   cardInfo.appendChild(location)
   cardInfo.appendChild(profile)
-  profile.appendChild(address)
+  
   cardInfo.appendChild(followers)
   cardInfo.appendChild(following)
   cardInfo.appendChild(bio)
@@ -114,8 +114,10 @@ function createCards(data){
   name.textContent = data.name
   username.textContent = data.login
   location.textContent = `Location: ${data.location}`
-  address.setAttribute('href', data.url)
-  profile.textContent = `Profile: ${address}`
+ // address.setAttribute('href', data.url)
+ // profile.innerHTML = `Profile: ${address}`
+ // profile.appendChild(address)
+  profile.innerHTML = `Profile: <a href=${data.url}> ${data.url} </a>`
   followers.textContent = `Followers: ${data.followers}`
   following.textContent = `Following: ${data.following}`
   bio.textContent = `Bio: ${data.bio}`

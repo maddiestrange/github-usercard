@@ -2,6 +2,7 @@
            (replacing the palceholder with your Github name):
            https://api.github.com/users/<your name>
 */
+axios.get(`https://api.github.com/users/maddiestrange`)
 
 /* Step 2: Inspect and study the data coming back, this is YOUR 
    github info! You will need to understand the structure of this 
@@ -9,6 +10,12 @@
 
    Skip to Step 3.
 */
+.then(data => {
+  console.log('my github', data)
+  })
+.catch(error => {
+  console.log('The dogs API is currently down, try again later', error)
+})
 
 /* Step 4: Pass the data received from Github into your function, 
            create a new component and add it to the DOM as a child of .cards

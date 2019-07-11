@@ -13,7 +13,7 @@ axios.get(`https://api.github.com/users/maddiestrange`)
 .then(mydata => {
   console.log('my github', mydata)
   const cards = document.querySelector('.cards')
-  const myElement = createCards(mydata)
+  const myElement = createCards(mydata.data)
   cards.appendChild(myElement)
   })
 

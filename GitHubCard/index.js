@@ -10,13 +10,13 @@ axios.get(`https://api.github.com/users/maddiestrange`)
 
    Skip to Step 3.
 */
-.then(data => {
-  console.log('my github', data)
-  const mydata = data
-  cards = document.querySelector('.cards')
+.then(mydata => {
+  console.log('my github', mydata)
+  const cards = document.querySelector('.cards')
   const myElement = createCards(mydata)
   cards.appendChild(myElement)
   })
+
 .catch(error => {
   console.log('The dogs API is currently down, try again later', error)
 })
@@ -49,6 +49,7 @@ const followersArray = [
     person.then(data => {
       const props = data.data;
       const element = createCards(props);
+      const cards = document.querySelector('.cards')
       cards.appendChild(element);
     });
   });
@@ -112,11 +113,11 @@ function createCards(data){
   img.src = data.avatar_url
   name.textContent = data.name
   username.textContent = data.login
-  location.textContent = `Location ${data.location}`
-  profile.textContent = 'Profile:'
-  address.href = data.url
-  followers.textContent = data.followers
-  followers.textContent = data.following
+  location.textContent = `Location: ${data.location}`
+  address.setAttribute('href', data.url)
+  profile.textContent = `Profile: ${address}`
+  followers.textContent = `Followers: ${data.followers}`
+  following.textContent = `Following: ${data.following}`
   bio.textContent = `Bio: ${data.bio}`
 
   return card

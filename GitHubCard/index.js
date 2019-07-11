@@ -47,8 +47,8 @@ const followersArray = [
   
   followersArray.forEach(person => {
     person.then(data => {
-      const props = data.data;
-      const element = createCards(props);
+      const holder = data.data;
+      const element = createCards(holder);
       const cards = document.querySelector('.cards')
       cards.appendChild(element);
     });
